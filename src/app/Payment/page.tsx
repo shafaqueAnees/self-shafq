@@ -1,6 +1,6 @@
 "use client"; // This marks the file as a Client Component
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface CarPaymentProps {
   carName: string;
@@ -9,11 +9,11 @@ interface CarPaymentProps {
 
 const CarPayment: React.FC<CarPaymentProps> = ({ carName, price }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
+    name: "",
+    email: "",
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,14 +27,14 @@ const CarPayment: React.FC<CarPaymentProps> = ({ carName, price }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle payment submission logic here
-    console.log('Payment Data:', formData);
+    console.log("Payment Data:", formData);
     alert(`Payment for ${carName} (${price}) is successful!`);
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Car Payment</h2>
-      <p className="text-gray-600 mb-6">
+    <div className="max-w-lg mx-auto bg-white shadow-md rounded-md p-6 sm:p-8 md:p-10">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Car Payment</h2>
+      <p className="text-gray-600 mb-6 text-center">
         You are paying for <strong>{carName}</strong> at a price of <strong>{price}</strong>.
       </p>
 
@@ -85,7 +85,7 @@ const CarPayment: React.FC<CarPaymentProps> = ({ carName, price }) => {
           />
         </div>
 
-        <div className="flex space-x-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="expiryDate" className="block text-sm font-medium text-gray-700">
               Expiry Date
@@ -121,7 +121,7 @@ const CarPayment: React.FC<CarPaymentProps> = ({ carName, price }) => {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
         >
           Pay Now
         </button>
@@ -135,7 +135,7 @@ const Page = () => {
     <>
       <CarPayment carName="Nissan GT-R" price="$80.00/day" />
       <div className="text-center mt-6">
-        <button className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+        <button className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">
           <a href="/">Go to Home</a>
         </button>
       </div>

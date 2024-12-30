@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
 export default function Page() {
   const cars = [
     {
-      name: 'Koenigsegg',
-      type: 'Sport',
-      fuel: '90L',
-      transmission: 'Manual',
-      capacity: '2 People',
-      price: '$99.00/day',
+      name: "Koenigsegg",
+      type: "Sport",
+      fuel: "90L",
+      transmission: "Manual",
+      capacity: "2 People",
+      price: "$99.00/day",
       oldPrice: null,
     },
     {
-      name: 'Nissan GT-R',
-      type: 'Sport',
-      fuel: '80L',
-      transmission: 'Manual',
-      capacity: '2 People',
-      price: '$80.00/day',
-      oldPrice: '$100.00',
+      name: "Nissan GT-R",
+      type: "Sport",
+      fuel: "80L",
+      transmission: "Manual",
+      capacity: "2 People",
+      price: "$80.00/day",
+      oldPrice: "$100.00",
     },
   ];
 
@@ -27,20 +27,24 @@ export default function Page() {
       <section className="bg-white py-10">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8">
           {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">Recent Cars</h2>
-            <button className="text-blue-600 hover:underline"><a href='/Veiw'>View All</a></button>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
+            <h2 className="text-2xl font-bold text-gray-800 text-center sm:text-left">
+              Recent Cars
+            </h2>
+            <button className="text-blue-600 hover:underline">
+              <a href="/Veiw">View All</a>
+            </button>
           </div>
 
           {/* Cards Grid */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cars.map((car, index) => (
               <div
                 key={index}
                 className="border border-gray-200 rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition-shadow"
               >
                 {/* Car Name */}
-                <h3 className="text-xl font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   <button className="bg-blue-600 px-4 py-2 rounded-sm hover:bg-blue-500">
                     <a href="/Car-Detail" className="hover:underline">
                       {car.name}
