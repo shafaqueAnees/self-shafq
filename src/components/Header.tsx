@@ -31,65 +31,74 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white w-full flex justify-start md:justify-between items-start md:items-center p-6">
-      <div
-        className="flex flex-col md:flex-row md:space-y-0 space-y-8 items-center justify-between space-x-0
-         md:space-x-20 w-full md:w-[500px]"
-      >
-        <div className="self-start">
-          <h1 className="text-blue-600 text-3xl font-bold">MORENT</h1>
-        </div>
-        <div className="border flex w-full lg:w-96 items-center rounded-full">
+    <header className="bg-white w-full flex flex-wrap justify-between items-center p-4 sm:p-6">
+      {/* Left Section */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full md:w-auto space-y-4 md:space-y-0 md:space-x-8">
+        {/* Logo */}
+        <h1 className="text-blue-600 text-3xl font-bold self-start md:self-center">
+          MORENT
+        </h1>
+
+        {/* Search Bar */}
+        <div className="flex w-full md:w-auto items-center border rounded-full px-2 py-1">
           <CiSearch
             size={20}
-            className="ml-3 text-sec cursor-pointer"
+            className="text-gray-500 cursor-pointer"
             onClick={handleSearch}
           />
           <input
             type="text"
             placeholder="Search something here..."
-            className="px-2 py-1 outline-none w-full lg:w-80"
+            className="flex-1 px-2 py-1 outline-none text-sm"
           />
           <Image
             src={filter}
-            alt=""
+            alt="Filter Icon"
             width={20}
-            className="mr-3 cursor-pointer"
+            className="cursor-pointer"
             onClick={handleFilter}
           />
         </div>
       </div>
-      <div>
-        <div className="flex items-center space-x-6">
-          <div className="hidden sm:block">
-            <div className="space-x-6 flex items-center">
-              <div
-                className="h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center border cursor-pointer"
-                onClick={handleFavorites}
-              >
-                <FaHeart size={20} color="#596780" />
-              </div>
-              <div
-                className="h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center border relative cursor-pointer"
-                onClick={handleNotifications}
-              >
-                <div className="absolute h-2 w-2 bg-[#FF4423] rounded-full top-0 right-0"></div>
-                <IoIosNotifications size={20} color="#596780" />
-              </div>
-              <div
-                className="h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center border cursor-pointer"
-                onClick={handleSettings}
-              >
-                <IoSettingsSharp size={20} color="#596780" />
-              </div>
-            </div>
+
+      {/* Right Section */}
+      <div className="flex items-center space-x-4 mt-4 md:mt-0">
+        {/* Icons */}
+        <div className="hidden sm:flex items-center space-x-4">
+          {/* Favorites */}
+          <div
+            className="h-8 w-8 flex items-center justify-center rounded-full bg-white shadow-md border cursor-pointer"
+            onClick={handleFavorites}
+          >
+            <FaHeart size={20} className="text-gray-600" />
           </div>
-          <div className="w-14 h-14 flex items-center">
-            <a href="/Dashboard">
-              <Image src={profile} alt="" />
-            </a>
+
+          {/* Notifications */}
+          <div
+            className="h-8 w-8 flex items-center justify-center rounded-full bg-white shadow-md border cursor-pointer relative"
+            onClick={handleNotifications}
+          >
+            <IoIosNotifications size={20} className="text-gray-600" />
+            <div className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></div>
+          </div>
+
+          {/* Settings */}
+          <div
+            className="h-8 w-8 flex items-center justify-center rounded-full bg-white shadow-md border cursor-pointer"
+            onClick={handleSettings}
+          >
+            <IoSettingsSharp size={20} className="text-gray-600" />
           </div>
         </div>
+
+        {/* Profile Image */}
+        <a href="/Dashboard" className="w-10 h-10 sm:w-12 sm:h-12">
+          <Image
+            src={profile}
+            alt="Profile Icon"
+            className="rounded-full object-cover"
+          />
+        </a>
       </div>
     </header>
   );
